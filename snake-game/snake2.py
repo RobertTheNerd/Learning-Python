@@ -36,6 +36,10 @@ def draw_snake(x, y):
     pg.draw.rect(screen, (0, 255, 0), (grid_width * x, grid_width * y, grid_width, grid_width))
 
 
+def draw_apple(x, y):
+    pg.draw.circle(screen, (255, 0, 0), (grid_width * (x + 0.5), grid_width * (y + 0.5)), grid_width//2 - 1)
+
+
 while True:
     # get message
     for event in pg.event.get():
@@ -72,6 +76,9 @@ while True:
 
     # draw snake
     draw_snake(*snake_pos)
+
+    # draw apple
+    draw_apple(5, 4)
 
     pg.display.flip()
     pg.time.wait(move_delay)
